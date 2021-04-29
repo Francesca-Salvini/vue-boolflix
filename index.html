@@ -34,7 +34,7 @@
 
             <!--singolo film-->
             <div class="film" v-for="film in films">
-                <img src="" alt="">
+                <img :src="'https://image.tmdb.org/t/p/' + 'w342' + (film.backdrop_path || film.poster_path) " alt="">
                 <div class="titolo">{{film.title}}</div>
                 <div class="titolo-originale">{{film.original_title}}</div>
                 <div class="lingua">
@@ -46,7 +46,7 @@
 
             <!--singola serie-->
             <div class="serie" v-for="serie in series">
-                <img src="" alt="">
+                <img :src="'https://image.tmdb.org/t/p/' + 'w342' + (serie.backdrop_path || serie.poster_path) " alt="">
                 <div class="titolo">{{serie.name}}</div>
                 <div class="titolo-originale">{{serie.original_name}}</div>
                 <div class="lingua">

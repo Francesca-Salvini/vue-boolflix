@@ -7,6 +7,11 @@
 }
 
 img {
+    width: 20%;
+    height: auto;
+}
+
+.lingua img {
     width: 20px;
     height: auto;
 

@@ -15,7 +15,8 @@ var app = new Vue (
                         params : {
                             api_key : '9e15066d27a78ef033c5f7eaffb30058', 
                             language : 'it-IT',
-                            query : this.userQuery
+                            query : this.userQuery,
+                            page : 1
                             
                         }
                         
@@ -37,7 +38,8 @@ var app = new Vue (
                             params : {
                                 api_key : '9e15066d27a78ef033c5f7eaffb30058', 
                                 language : 'it-IT',
-                                query : this.userQuery
+                                query : this.userQuery,
+                                page : 1
                                 
                             }
                         })
@@ -52,7 +54,10 @@ var app = new Vue (
                             
                             
                         });
-            }
+            
+            },
+
+            
         },
         
             
