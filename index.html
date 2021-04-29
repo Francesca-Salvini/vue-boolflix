@@ -43,6 +43,18 @@
                 <div class="voto">{{film.vote_average}}</div>
             </div>
             <!--fine singolo film-->
+
+            <!--singola serie-->
+            <div class="serie" v-for="serie in series">
+                <img src="" alt="">
+                <div class="titolo">{{serie.name}}</div>
+                <div class="titolo-originale">{{serie.original_name}}</div>
+                <div class="lingua">
+                    <img :src="'img/' + serie.original_language + '.png'" alt="">
+                </div>
+                <div class="voto">{{serie.vote_average}}</div>
+            </div>
+            <!--fine singola serie-->
         </div>
         
     </div>
