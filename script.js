@@ -3,7 +3,8 @@ var app = new Vue (
 
         el: '#root',
         data: {
-            film : []
+            films : [],
+            userQuery : ''
         },
         methods: {},
         mounted() {
@@ -12,15 +13,18 @@ var app = new Vue (
                 params : {
                     api_key : '9e15066d27a78ef033c5f7eaffb30058', 
                     language : 'it-IT',
-                    query : 'Rambo'
-
+                    query : this.userQuery
+                    
                 }
+                
             })
             .then((response) => {
                 const result = response.data;
-                console.log(result);
-                this.film = result.response;
+                // console.log(result);
+                this.films = result.results;
+                console.log(this.films);
                 
+
                 
                 
                 

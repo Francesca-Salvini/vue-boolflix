@@ -24,8 +24,23 @@
     <div id="root">
 
         <div class="nav">
-            <input type="text" placeholder="Scrivi un titolo" >
-            <button >Cerca</button>
+            <input type="text" placeholder="Scrivi un titolo" v-model="userQuery">
+            <button  >Cerca</button>
+        </div>
+
+        
+
+        <div class="film-container">
+
+            <!--singolo film-->
+            <div class="film" v-for="film in films">
+                <img src="" alt="">
+                <div class="titolo">{{film.title}}</div>
+                <div class="titolo-originale">{{film.original_title}}</div>
+                <div class="lingua">{{film.original_language}}</div>
+                <div class="voto">{{film.vote_average}}</div>
+            </div>
+            <!--fine singolo film-->
         </div>
         
     </div>
