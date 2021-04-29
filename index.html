@@ -37,7 +37,9 @@
                 <img src="" alt="">
                 <div class="titolo">{{film.title}}</div>
                 <div class="titolo-originale">{{film.original_title}}</div>
-                <div class="lingua">{{film.original_language}}</div>
+                <div class="lingua">
+                    <img :src="'img/' + film.original_language + '.png'" alt="">
+                </div>
                 <div class="voto">{{film.vote_average}}</div>
             </div>
             <!--fine singolo film-->
