@@ -12,9 +12,9 @@
     <!--CSS-->
     <link rel="stylesheet" href="style.css">
 
-    <!--GOOGLE FONTS : ROBOTO-->
+    <!--GOOGLE FONTS : BEBAS NEUE-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <!--AXIOS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script> 
@@ -28,8 +28,14 @@
     <div id="root">
 
         <div class="nav">
-            <input type="text" placeholder="Scrivi un titolo" v-model="userQuery">
-            <button @click="callingApi" >Cerca</button>
+            <div class="logo">
+                <a href="https://fontmeme.com/netflix-font/"><img src="https://fontmeme.com/permalink/210430/c072857f28ffed69c9266a55183f4c20.png" alt="netflix-font" border="0"></a>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Scrivi un titolo" v-model="userQuery" @keyup.enter="callingApi">
+                <button @click="callingApi" ><i class="fas fa-search"></i></button>
+            </div>
+            
         </div>
 
         
@@ -37,31 +43,41 @@
         <div class="film-container">
 
             <!--singolo film-->
-            <div class="film" v-for="film in films">
+            <div class="film clearfix" v-for="film in films">
                 <img :src="'https://image.tmdb.org/t/p/' + 'w342' + (film.backdrop_path || film.poster_path) " alt="">
-                <div class="titolo">{{film.title}}</div>
-                <div class="titolo-originale">{{film.original_title}}</div>
-                <div class="lingua">
-                    <img :src="'img/' + film.original_language + '.png'" alt="">
+                <div class="media-info">
+                        <div class="titolo"><strong>Titolo: </strong> {{film.title}}</div>
+                        <div class="titolo-originale"><strong>Titolo originale: </strong>  {{film.original_title}}</div>
+                        <div class="lingua">
+                            <strong>Lingua originale: </strong>  <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
+                        </div>
+                        <div class="voto" v-for="star in film.vote_average">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="overview" v-if="film.overview.length > 0"><strong>Overview: </strong> {{film.overview}}</div>
                 </div>
-                <div class="voto" v-for="star in film.vote_average">
-                    <i class="fas fa-star"></i>
-                </div>
+                
             </div>
             <!--fine singolo film-->
 
             <!--singola serie-->
             <div class="serie clearfix" v-for="serie in series">
                 <img :src="'https://image.tmdb.org/t/p/' + 'w342' + (serie.backdrop_path || serie.poster_path) " alt="">
-                <div class="titolo">{{serie.name}}</div>
-                <div class="titolo-originale">{{serie.original_name}}</div>
-                <div class="lingua">
-                    <img :src="'img/' + serie.original_language + '.png'" alt="">
-                </div>
-                <div class="voto " v-for="star in serie.vote_average">
-                    <div class="stars"><i class="fas fa-star"></i></div>
+                <div class="media-info">
+                    <div class="titolo"><strong>Titolo: </strong>  {{serie.name}}</div>
+                    <div class="titolo-originale"><strong>Titolo originale: </strong>{{serie.original_name}}</div>
+                    <div class="lingua">
+                        <strong>Lingua originale: </strong> <img :src="'img/' + serie.original_language + '.png'" alt="">
+                    </div>
+                    <div class="voto " v-for="star in serie.vote_average">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                        </div>
                     
+                    </div>
+                    <div class="overview" v-if="serie.overview.length > 0"><strong>Overview: </strong> {{serie.overview}}</div>
                 </div>
+                
             </div>
             <!--fine singola serie-->
         </div>
