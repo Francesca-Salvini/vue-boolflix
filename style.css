@@ -8,6 +8,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #303030;
 }
 
 .clearfix::after {
@@ -59,10 +60,13 @@ img {
     font-size: 11px;
 }
 
+/*MAIN*/
+
+
 /*CONTAINER*/
 
 .film-container {
-    background-color: #303030;
+    
     width: 100%;
     padding: 60px 0;
     display: flex;
@@ -70,17 +74,14 @@ img {
     justify-content: center;
 }
 
-.film {
-    width: calc( ( 100% / 6 ) - 80px );
-    height: 300px;
-    background-color: red;
-    text-align: center;
+.film , .serie{
+    width: calc( ( 100% / 5 ) - 80px );
+    height: 338px ;
     
-    padding: 20px;
+    text-align: center;
     margin: 0 20px;
     margin-bottom: 20px;
 }
-
 
 
 .media-info {
@@ -90,11 +91,22 @@ img {
     font-weight: 100;
     font-size: 14px;
     padding: 5px 0;
+    opacity: 0;
+}
+
+img.image-not-found {
+    height: -webkit-fill-available;
+    object-fit: cover;
+}
+
+img.image {
+    height: -webkit-fill-available;
+    object-fit: fill;
 }
 
 
 .film:hover .media-info {
-    display: block;
+    opacity: 1;
     background-color: rgba(48, 48, 48, 0.5);
     
 }

@@ -39,48 +39,68 @@
         </div>
 
         
+        <main>
+            <div class="film-container">
 
-        <div class="film-container">
+                <!--singolo film-->
+                <div class="film clearfix" v-for="film in films">
+                    <img 
+                    v-if="film.poster_path"
+                    class="image" 
+                    :src="'https://image.tmdb.org/t/p/' + 'w342' + film.poster_path " 
+                    alt="">
 
-            <!--singolo film-->
-            <div class="film clearfix" v-for="film in films">
-                <img :src="'https://image.tmdb.org/t/p/' + 'w342' + (film.backdrop_path || film.poster_path) " alt="">
-                <div class="media-info">
-                        <div class="titolo"><strong>Titolo: </strong> {{film.title}}</div>
-                        <div class="titolo-originale"><strong>Titolo originale: </strong>  {{film.original_title}}</div>
-                        <div class="lingua">
-                            <strong>Lingua originale: </strong>  <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
-                        </div>
-                        <div class="voto" v-for="star in film.vote_average">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="overview" v-if="film.overview.length > 0"><strong>Overview: </strong> {{film.overview}}</div>
-                </div>
-                
-            </div>
-            <!--fine singolo film-->
-
-            <!--singola serie-->
-            <div class="serie clearfix" v-for="serie in series">
-                <img :src="'https://image.tmdb.org/t/p/' + 'w342' + (serie.backdrop_path || serie.poster_path) " alt="">
-                <div class="media-info">
-                    <div class="titolo"><strong>Titolo: </strong>  {{serie.name}}</div>
-                    <div class="titolo-originale"><strong>Titolo originale: </strong>{{serie.original_name}}</div>
-                    <div class="lingua">
-                        <strong>Lingua originale: </strong> <img :src="'img/' + serie.original_language + '.png'" alt="">
+                    <img 
+                    v-else
+                    class="image-not-found"
+                    src="img/notfound.png" alt="">
+                    <div class="media-info">
+                            <div class="titolo"><strong>Titolo: </strong> {{film.title}}</div>
+                            <div class="titolo-originale"><strong>Titolo originale: </strong>  {{film.original_title}}</div>
+                            <div class="lingua">
+                                <strong>Lingua originale: </strong>  <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
+                            </div>
+                            <div class="voto" v-for="star in film.vote_average">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="overview" v-if="film.overview.length > 0"><strong>Overview: </strong> {{film.overview}}</div>
                     </div>
-                    <div class="voto " v-for="star in serie.vote_average">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                        </div>
                     
-                    </div>
-                    <div class="overview" v-if="serie.overview.length > 0"><strong>Overview: </strong> {{serie.overview}}</div>
                 </div>
-                
+                <!--fine singolo film-->
+    
+                <!--singola serie-->
+                <div class="serie clearfix" v-for="serie in series">
+                    <img 
+                    v-if="serie.poster_path"
+                    class="image" 
+                    :src="'https://image.tmdb.org/t/p/' + 'w342' + serie.poster_path " 
+                    alt="">
+
+                    <img 
+                    v-else
+                    class="image-not-found"
+                    src="img/notfound.png" alt="">
+                    <div class="media-info">
+                        <div class="titolo"><strong>Titolo: </strong>  {{serie.name}}</div>
+                        <div class="titolo-originale"><strong>Titolo originale: </strong>{{serie.original_name}}</div>
+                        <div class="lingua">
+                            <strong>Lingua originale: </strong> <img :src="'img/' + serie.original_language + '.png'" alt="">
+                        </div>
+                        <div class="voto " v-for="star in serie.vote_average">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        
+                        </div>
+                        <div class="overview" v-if="serie.overview.length > 0"><strong>Overview: </strong> {{serie.overview}}</div>
+                    </div>
+                    
+                </div>
+                <!--fine singola serie-->
             </div>
-            <!--fine singola serie-->
-        </div>
+        </main>
+        
         
     </div>
     
