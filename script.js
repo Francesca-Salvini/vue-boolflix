@@ -28,7 +28,12 @@ var app = new Vue (
                         console.log(this.films);
                         
 
+                        // trasformo i numeri decimali da 1 a 10 in numeri interi da 1 a 5 (per il voto)
+                        this.films.forEach((film) => {
+                            film.vote_average = Math.ceil(film.vote_average / 2);
+                        });
                         
+                        console.log(film.vote_average);
                         
                         
                     });
@@ -49,7 +54,12 @@ var app = new Vue (
                             this.series = result.results;
                             console.log(this.series);
                             
-    
+                            // trasformo i numeri decimali da 1 a 10 in numeri interi da 1 a 5 (per il voto)
+                            this.series.forEach((serie) => {
+                                serie.vote_average = Math.ceil(serie.vote_average / 2);
+                            });
+                            
+                            console.log(serie.vote_average);
                             
                             
                             
