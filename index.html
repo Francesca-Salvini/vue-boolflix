@@ -27,16 +27,23 @@
 
     <div id="root">
 
+        <!--NAVBAR-->
         <div class="nav">
+            <!--Logo from Fontmeme-->
             <div class="logo">
                 <a href="https://fontmeme.com/netflix-font/"><img src="https://fontmeme.com/permalink/210430/c072857f28ffed69c9266a55183f4c20.png" alt="netflix-font" border="0"></a>
             </div>
+            <!--Search bar-->
             <div class="search">
+                <!--Input-->
                 <input type="text" placeholder="Scrivi un titolo" v-model="userQuery" @keyup.enter="callingApi">
+                <!--Button-->
                 <button @click="callingApi" ><i class="fas fa-search"></i></button>
             </div>
+            <!--Fine Search bar-->
             
         </div>
+        <!--FINE NAVBAR-->
 
         
         <main>
@@ -44,6 +51,7 @@
 
                 <!--singolo film-->
                 <div class="film clearfix" v-for="film in films">
+                    <!--Poster-->
                     <img 
                     v-if="film.poster_path"
                     class="image" 
@@ -54,23 +62,30 @@
                     v-else
                     class="image-not-found"
                     src="img/notfound.png" alt="">
-                    <div class="media-info layover">
+
+                    <!--Info film/serie-->
+                    <div class="media-info">
                             <div class="titolo"><strong>Titolo: </strong> {{film.title}}</div>
                             <div class="titolo-originale"><strong>Titolo originale: </strong>  {{film.original_title}}</div>
                             <div class="lingua">
-                                <strong>Lingua originale: </strong>  <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
+                                <strong>Lingua originale: </strong>  
+                                <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
                             </div>
+                            <div class="cast"><strong>Cast: </strong></div>
+                            <div class="genere"><strong>Genere: </strong></div>
                             <div class="voto" v-for="star in film.vote_average">
                                 <i class="fas fa-star"></i>
                             </div>
                             <div class="overview" v-if="film.overview.length > 0"><strong>Overview: </strong> {{film.overview}}</div>
                     </div>
+                    <!--Fine Info film/serie-->
                     
                 </div>
                 <!--fine singolo film-->
     
                 <!--singola serie-->
                 <div class="serie clearfix" v-for="serie in series">
+                    <!--Poster-->
                     <img 
                     v-if="serie.poster_path"
                     class="image" 
@@ -81,11 +96,14 @@
                     v-else
                     class="image-not-found"
                     src="img/notfound.png" alt="">
+
+                    <!--Info film/serie-->
                     <div class="media-info">
                         <div class="titolo"><strong>Titolo: </strong>  {{serie.name}}</div>
                         <div class="titolo-originale"><strong>Titolo originale: </strong>{{serie.original_name}}</div>
                         <div class="lingua">
-                            <strong>Lingua originale: </strong> <img :src="'img/' + serie.original_language + '.png'" alt="">
+                            <strong>Lingua originale: </strong> 
+                            <img :src="'img/' + serie.original_language + '.png'" alt="">
                         </div>
                         <div class="voto " v-for="star in serie.vote_average">
                             <div class="stars">
@@ -95,6 +113,7 @@
                         </div>
                         <div class="overview" v-if="serie.overview.length > 0"><strong>Overview: </strong> {{serie.overview}}</div>
                     </div>
+                    <!--Fine Info film/serie-->
                     
                 </div>
                 <!--fine singola serie-->

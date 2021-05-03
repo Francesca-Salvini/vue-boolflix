@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+/*COMMON*/
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #303030;
@@ -78,6 +79,7 @@ img {
     justify-content: center;
 }
 
+/*SINGOLO FILM/SERIE*/
 .film , .serie{
     
     max-width: 340px;
@@ -88,7 +90,7 @@ img {
     position: relative ;
 }
 
-
+/*INFO FILM/SERIE*/
 .media-info {
     height: 100%;
     width: 100%;
@@ -106,6 +108,21 @@ img {
     
 }
 
+.titolo, .titolo-originale, .lingua, .voto, .cast, .genere, .overview {
+    padding: 4px 0;
+    
+}
+
+.overview {
+    display: inline-block;
+}
+
+.voto {
+    color: #fdbc00;
+    float: left;
+}
+
+/*POSTER*/
 img.image-not-found {
     height: -webkit-fill-available;
     object-fit: cover;
@@ -116,15 +133,7 @@ img.image {
     object-fit: fill;
 }
 
-.titolo, .titolo-originale, .lingua, .voto, .overview {
-    padding: 4px 0;
-    
-}
-
-.overview {
-    display: inline-block;
-}
-
+/*HOVER*/
 .film:hover .media-info {
     opacity: 1;
     cursor: pointer;
@@ -155,9 +164,6 @@ img.image {
 ::-webkit-scrollbar-button {
     display:none;
 }
-/*VOTO*/
 
-.voto {
-    color: #fdbc00;
-    float: left;
-}
+
+

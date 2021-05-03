@@ -9,7 +9,9 @@ var app = new Vue (
         },
         methods: {
 
+            // Funzione per richiamare l'API (tramite keyup.enter da input / click da button)
             callingApi() {
+                // FILM
                 axios
                     .get('https://api.themoviedb.org/3/search/movie?', {
                         params : {
@@ -38,6 +40,7 @@ var app = new Vue (
                         
                     });
 
+                    // SERIE
                     axios
                         .get('https://api.themoviedb.org/3/search/tv?' , {
                             params : {
