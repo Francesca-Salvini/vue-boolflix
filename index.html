@@ -31,7 +31,7 @@
         <div class="nav">
             <!--Logo from Fontmeme-->
             <div class="logo">
-                <a href="https://fontmeme.com/netflix-font/"><img src="https://fontmeme.com/permalink/210430/c072857f28ffed69c9266a55183f4c20.png" alt="netflix-font" border="0"></a>
+                <a href="#"><img src="https://fontmeme.com/permalink/210430/c072857f28ffed69c9266a55183f4c20.png" alt="netflix-font" ></a>
             </div>
             <!--Search bar-->
             <div class="search">
@@ -47,10 +47,15 @@
 
         
         <main>
+
+            <h1>Cerca il tuo film o la tua serie tv preferita</h1>
+            
             <div class="film-container">
 
+                
+
                 <!--singolo film-->
-                <div class="film clearfix" v-for="film in films">
+                <div class="film clearfix" v-for="film in films" v-if="film.poster_path">
                     <!--Poster-->
                     <img 
                     v-if="film.poster_path"
@@ -58,14 +63,14 @@
                     :src="'https://image.tmdb.org/t/p/' + 'w342' + film.poster_path " 
                     alt="">
 
-                    <img 
+                    <!-- <img 
                     v-else
                     class="image-not-found"
-                    src="img/notfound.png" alt="">
+                    src="img/notfound.png" alt=""> -->
 
                     <!--Info film/serie-->
                     <div class="media-info">
-                            <div class="titolo"><strong>Titolo: </strong> {{film.title}}</div>
+                            <div class="titolo">{{film.title}}</div>
                             <div class="titolo-originale"><strong>Titolo originale: </strong>  {{film.original_title}}</div>
                             <div class="lingua">
                                 <strong>Lingua originale: </strong>  
@@ -76,7 +81,7 @@
                             <div class="voto" v-for="star in film.vote_average">
                                 <i class="fas fa-star"></i>
                             </div>
-                            <div class="overview" v-if="film.overview.length > 0"><strong>Overview: </strong> {{film.overview}}</div>
+                            <div class="overview" v-if="film.overview.length > 0"><strong>Trama: </strong> {{film.overview}}</div>
                     </div>
                     <!--Fine Info film/serie-->
                     
@@ -84,7 +89,7 @@
                 <!--fine singolo film-->
     
                 <!--singola serie-->
-                <div class="serie clearfix" v-for="serie in series">
+                <div class="serie clearfix" v-for="serie in series" v-if="serie.poster_path">
                     <!--Poster-->
                     <img 
                     v-if="serie.poster_path"
@@ -92,14 +97,14 @@
                     :src="'https://image.tmdb.org/t/p/' + 'w342' + serie.poster_path " 
                     alt="">
 
-                    <img 
+                    <!-- <img 
                     v-else
                     class="image-not-found"
-                    src="img/notfound.png" alt="">
+                    src="img/notfound.png" alt=""> -->
 
                     <!--Info film/serie-->
                     <div class="media-info">
-                        <div class="titolo"><strong>Titolo: </strong>  {{serie.name}}</div>
+                        <div class="titolo"> {{serie.name}}</div>
                         <div class="titolo-originale"><strong>Titolo originale: </strong>{{serie.original_name}}</div>
                         <div class="lingua">
                             <strong>Lingua originale: </strong> 
@@ -111,7 +116,9 @@
                             </div>
                         
                         </div>
-                        <div class="overview" v-if="serie.overview.length > 0"><strong>Overview: </strong> {{serie.overview}}</div>
+                        <div class="cast"><strong>Cast: </strong></div>
+                            <div class="genere"><strong>Genere: </strong></div>
+                        <div class="overview" v-if="serie.overview.length > 0"><strong>Trama: </strong> {{serie.overview}}</div>
                     </div>
                     <!--Fine Info film/serie-->
                     
@@ -119,6 +126,8 @@
                 <!--fine singola serie-->
             </div>
         </main>
+
+        
         
         
     </div>
