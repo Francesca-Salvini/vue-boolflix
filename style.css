@@ -79,8 +79,8 @@ img {
 }
 
 .film , .serie{
-    width: calc( ( 100% / 5 ) - 80px );
-    max-width: 490px;
+    
+    max-width: 340px;
     height: 400px ;
     text-align: center;
     margin: 0 20px;
