@@ -79,9 +79,15 @@
                             </div>
                             <div class="cast"><strong>Cast: </strong></div>
                             <div class="genere"><strong>Genere: </strong></div>
-                            <div class="voto" v-for="star in film.vote_average">
-                                <i class="fas fa-star"></i>
+                            <div class="voto">
+                                <strong>Voto: </strong> {{film.vote_average}} /10
                             </div>
+
+                            <div >
+                                <i v-for="star in film.vote_average" class="fas fa-star stars"></i>
+                                <i v-for="star in (5 - film.vote_average)" class="fas fa-star empty-stars"></i>
+                            </div>
+
                             <div class="overview" v-if="film.overview.length > 0"><strong>Trama: </strong> {{film.overview}}</div>
                     </div>
                     <!--Fine Info film/serie-->

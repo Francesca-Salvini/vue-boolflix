@@ -130,9 +130,23 @@ h1 {
 }
 
 .voto {
-    color: #fdbc00;
     float: left;
 }
+
+.stars {
+    color: #fdbc00;
+    float: left;
+    padding-top: 4px;
+    padding-left: 10px;
+}
+
+.empty-stars {
+    color:  #303030 ;
+    float: left;
+    padding-top: 4px;
+    padding-left: 10px;
+}
+
 
 /*POSTER*/
 img.image-not-found {
