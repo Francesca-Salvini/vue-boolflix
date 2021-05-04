@@ -69,9 +69,6 @@ img {
     font-size: 11px;
 }
 
-/*MAIN*/
-
-
 /*CONTAINER*/
 
 .film-container {
@@ -118,17 +115,14 @@ h1 {
     top: 0;
     left: 0;
     border-radius: 8px;
-    
 }
 
 .titolo {
     font-size: 24px;
-    
 }
 
 .titolo, .titolo-originale, .lingua, .voto, .cast, .genere, .overview {
     padding: 4px 0;
-    
 }
 
 .overview {
@@ -157,7 +151,6 @@ img.image {
 .film:hover .media-info {
     opacity: 1;
     cursor: pointer;
-    
 }
 
 .serie:hover .media-info {
@@ -184,6 +177,3 @@ img.image {
 ::-webkit-scrollbar-button {
     display:none;
 }
-
-
-

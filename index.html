@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
     <!--CSS-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!--GOOGLE FONTS : BEBAS NEUE-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -72,9 +72,10 @@
                     <div class="media-info">
                             <div class="titolo">{{film.title}}</div>
                             <div class="titolo-originale"><strong>Titolo originale: </strong>  {{film.original_title}}</div>
-                            <div class="lingua">
+                            <div class="lingua" v-if="lang.includes(film.original_language)">
                                 <strong>Lingua originale: </strong>  
-                                <img :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
+                                <img  :src="'img/' + film.original_language + '.png'" :alt="film.original_language">
+                                
                             </div>
                             <div class="cast"><strong>Cast: </strong></div>
                             <div class="genere"><strong>Genere: </strong></div>
@@ -106,7 +107,7 @@
                     <div class="media-info">
                         <div class="titolo"> {{serie.name}}</div>
                         <div class="titolo-originale"><strong>Titolo originale: </strong>{{serie.original_name}}</div>
-                        <div class="lingua">
+                        <div class="lingua" v-if="lang.includes(serie.original_language)">
                             <strong>Lingua originale: </strong> 
                             <img :src="'img/' + serie.original_language + '.png'" alt="">
                         </div>
@@ -127,13 +128,10 @@
             </div>
         </main>
 
-        
-        
-        
     </div>
     
 
     <!--JAVASCRIPT-->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

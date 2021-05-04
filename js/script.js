@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+/*jshint esversion: 9 */
 var app = new Vue ( 
     {
 
@@ -5,7 +7,8 @@ var app = new Vue (
         data: {
             films : [],
             userQuery : '',
-            series : []
+            series : [],
+            lang : ["it", "en", "es", "fr", "de", "ja", "pol", "ru"]
         },
         methods: {
 
@@ -21,7 +24,6 @@ var app = new Vue (
                             page : 1
                             
                         }
-                        
                     })
                     .then((response) => {
                         const result = response.data;
@@ -36,8 +38,6 @@ var app = new Vue (
                         });
                         
                         console.log(film.vote_average);
-                        
-                        
                     });
 
                     // SERIE
@@ -48,7 +48,6 @@ var app = new Vue (
                                 language : 'it-IT',
                                 query : this.userQuery,
                                 page : 1
-                                
                             }
                         })
                         .then((response) => {
@@ -64,20 +63,7 @@ var app = new Vue (
                             
                             console.log(serie.vote_average);
                             
-                            
-                            
                         });
-            
             },
-
-            
         },
-        
-            
-            
-            
-            
-
-            
-        
     });
